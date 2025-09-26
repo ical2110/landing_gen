@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- 1. Tambahkan CSS Swiper.js -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -17,6 +19,13 @@
             background-image: url('https://images.unsplash.com/photo-1608231387042-66d1773070a5?q=80&w=2070&auto=format&fit=crop');
             background-size: cover;
             background-position: center;
+        }
+        /* Kustomisasi warna navigasi slider */
+        .swiper-button-next, .swiper-button-prev {
+            color: #fff; /* Warna panah */
+        }
+        .swiper-pagination-bullet-active {
+            background: #3b82f6 !important; /* Warna titik pagination aktif (biru) */
         }
     </style>
 </head>
@@ -29,13 +38,6 @@
             <h1 class="text-4xl md:text-6xl font-bold mb-4">GenesisxClean</h1>
             <p class="text-2xl md:text-4xl mb-6">We Wash It As You Wish</p>
             <p class="text-lg md:text-xl mb-8 max-w-2xl mx-auto">Kembalikan Kilau Sepatumu, Tanpa Ribet!</p>
-            
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto mb-8 text-sm md:text-base">
-                <div class="bg-white/20 p-3 rounded-lg backdrop-blur-sm">Deep Cleaning</div>
-                <div class="bg-white/20 p-3 rounded-lg backdrop-blur-sm">Fast Cleaning</div>
-                <div class="bg-white/20 p-3 rounded-lg backdrop-blur-sm">Unyellowing Midsole & Insole</div>
-                <div class="bg-white/20 p-3 rounded-lg backdrop-blur-sm">Gratis Antar Jemput (min. 2 pasang)</div>
-            </div>
 
             <a href="https://wa.me/6289659599803" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300">
                 Cuci Sepatu Sekarang!
@@ -127,41 +129,51 @@
         </div>
     </section>
     
-    <!-- 5. Testimoni (Placeholder) -->
-    <section id="testimonials" class="py-20 bg-gray-900">
+    <!-- 6. Galeri Slider -->
+    <section id="gallery" class="py-20 bg-gray-900">
         <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12">Apa Kata Pelanggan Kami?</h2>
-            <div class="max-w-2xl mx-auto bg-gray-800 p-8 rounded-lg">
-                <p class="text-lg italic text-gray-300">"Sepatu saya seperti baru lagi, GenesisxClean memang top! Pengerjaannya cepat dan hasilnya bersih banget. Recommended!"</p>
-                <p class="mt-4 font-bold">- Pelanggan Puas</p>
+            <h2 class="text-3xl font-bold mb-12">Bukti Nyata Kualitas Kami</h2>
+            <!-- Struktur Slider Swiper.js -->
+            <div class="swiper-container max-w-3xl mx-auto rounded-lg">
+                <div class="swiper-wrapper">
+                    <!-- Slide 1 -->
+                    <div class="swiper-slide"><img src="{{ asset('images/sepatu1-sesudah.jpg') }}" alt="Hasil Cuci Sepatu 1" class="w-full h-96 object-cover"></div>
+                    <!-- Slide 2 -->
+                    <div class="swiper-slide"><img src="{{ asset('images/sepatu2-sesudah.jpg') }}" alt="Hasil Cuci Sepatu 2" class="w-full h-96 object-cover"></div>
+                    <!-- Slide 3 (Contoh, ganti dengan gambar Anda) -->
+                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=1887" alt="Hasil Cuci Sepatu 3" class="w-full h-96 object-cover"></div>
+                    <!-- Slide 4 (Contoh, ganti dengan gambar Anda) -->
+                    <div class="swiper-slide"><img src="https://images.unsplash.com/photo-1560769629-975ec94e6a86?q=80&w=1964" alt="Hasil Cuci Sepatu 4" class="w-full h-96 object-cover"></div>
+                </div>
+                <!-- Tambahkan Pagination (titik-titik di bawah) -->
+                <div class="swiper-pagination"></div>
+
+                <!-- Tambahkan Tombol Navigasi (panah kiri/kanan) -->
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
             </div>
         </div>
     </section>
 
-    <!-- 6. Galeri (Placeholder) -->
-    <section id="gallery" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-3xl font-bold mb-12">Bukti Nyata Kualitas Kami</h2>
-            <p class="text-gray-400 mb-8">Galeri foto sebelum & sesudah akan segera hadir di sini!</p>
-            <!-- Tambahkan gambar di sini nanti -->
-        </div>
-    </section>
-
     <!-- 7. Hubungi Kami -->
-    <section id="contact" class="py-20 bg-gray-900">
+    <section id="contact" class="py-20 bg-gray-800">
         <div class="container mx-auto px-6 text-center">
             <h2 class="text-3xl font-bold mb-12">Siap Mencuci Sepatumu?</h2>
             <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
                 <div class="bg-gray-800 p-6 rounded-lg">
-                    <h3 class="font-bold text-xl mb-4">Informasi Kontak</h3>
-                    <a href="https://wa.me/6289659599803" target="_blank" class="flex items-center mb-3 text-blue-400 hover:text-blue-300">
-                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
-                        WhatsApp: 089659599803
-                    </a>
-                    <a href="https://instagram.com/genesisxproject" target="_blank" class="flex items-center text-blue-400 hover:text-blue-300">
-                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.5 21H8.25A2.25 2.25 0 0 1 6 18.75V8.25A2.25 2.25 0 0 1 8.25 6h7.5A2.25 2.25 0 0 1 18 8.25v5.25m-6-3.75h.008v.008H12v-.008ZM12 15h.008v.008H12v-.008Zm0 3h.008v.008H12v-.008Zm0-6h.008v.008H12v-.008Z"></path></svg>
-                        Instagram: @genesisxproject
-                    </a>
+                    <h3 class="font-bold text-xl ">Informasi Kontak</h3>
+                    <div class="flex items-center">
+                        <!-- WhatsApp Icon -->
+                        <a href="https://wa.me/6289659599803" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                            <!-- Menambahkan class w-8 h-8 untuk mengatur ukuran -->
+                            <img src="{{ asset('images/wa.png') }}" alt="WhatsApp Logo" class="w-16 h-16">
+                        </a>
+                        <!-- Instagram Icon -->
+                        <a href="https://instagram.com/genesisxproject" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
+                            <!-- Menambahkan class w-8 h-8 untuk mengatur ukuran -->
+                            <img src="{{ asset('images/instagram.png') }}" alt="Instagram Logo" class="w-14 h-14">
+                        </a>
+                    </div>
                 </div>
                 <div class="bg-gray-800 p-6 rounded-lg">
                     <h3 class="font-bold text-xl mb-4">Alamat Drop Point & Area Layanan</h3>
@@ -170,26 +182,41 @@
                     <p><strong>Area Layanan:</strong> Cicalengka, Cikancung, Rancaekek, Nagreg</p>
                 </div>
             </div>
-            <a href="https://wa.me/6289659599803" target="_blank" class="mt-12 inline-block bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300">
-                Pesan Sekarang!
-            </a>
         </div>
     </section>
 
     <!-- 8. Footer -->
     <footer class="bg-gray-800 border-t border-gray-700 py-6">
         <div class="container mx-auto px-6 text-center text-gray-400">
-            <p class="font-bold text-lg mb-2">GenesisxClean</p>
-            <p class="text-sm">&copy; {{ date('Y') }} GenesisxClean. All Rights Reserved.</p>
-            <div class="flex justify-center mt-4">
-                <a href="https://instagram.com/genesisxproject" target="_blank" class="text-gray-400 hover:text-white">
-                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                        <path fill-rule="evenodd" d="M12.315 2c-4.013 0-4.485.017-6.053.088-1.57.07-2.643.34-3.57.73-1.02.43-1.84.99-2.67 1.82-.83.83-1.39 1.65-1.82 2.67-.39.927-.66 1.998-.73 3.57C2.017 7.83 2 8.29 2 12.315s.017 4.485.088 6.053c.07 1.57.34 2.643.73 3.57.43 1.02.99 1.84 1.82 2.67.83.83 1.65 1.39 2.67 1.82.927.39 1.998.66 3.57.73 1.568.07 2.04.088 6.053.088s4.485-.017 6.053-.088c1.57-.07 2.643-.34 3.57-.73 1.02-.43 1.84-.99 2.67-1.82.83-.83 1.39-1.65 1.82-2.67.39-.927.66-1.998-.73-3.57.07-1.568.088-2.04.088-6.053s-.017-4.485-.088-6.053c-.07-1.57-.34-2.643-.73-3.57-.43-1.02-.99-1.84-1.82-2.67-.83-.83-1.65-1.39-2.67-1.82-.927-.39-1.998-.66-3.57-.73C16.798 2.017 16.328 2 12.315 2zm0 1.8c4.043 0 4.42.016 5.98.086 1.45.066 2.29.32 2.87.54.71.27 1.25.64 1.8 1.18.54.54 1.01 1.1 1.18 1.8.22.58.47 1.42.54 2.87.07 1.56.086 1.937.086 5.98s-.016 4.42-.086 5.98c-.066 1.45-.32 2.29-.54 2.87-.27.71-.64 1.25-1.18 1.8-.54.54-1.1 1.01-1.8 1.18-.58.22-1.42.47-2.87.54-1.56.07-1.937.086-5.98.086s-4.42-.016-5.98-.086c-1.45-.066-2.29-.32-2.87-.54-.71-.27-1.25-.64-1.8-1.18-.54-.54-1.01-1.1-1.18-1.8-.22-.58-.47-1.42-.54-2.87-.07-1.56-.086-1.937-.086-5.98s.016-4.42.086-5.98c.066-1.45.32-2.29.54-2.87.27-.71.64-1.25 1.18-1.8.54-.54 1.1-1.01 1.8-1.18.58-.22 1.42.47 2.87.54 1.56.07 1.937.086 5.98.086zM12 7.38a4.935 4.935 0 100 9.87 4.935 4.935 0 000-9.87zm0 8.07a3.135 3.135 0 110-6.27 3.135 3.135 0 010 6.27zm6.31-8.24a1.163 1.163 0 100-2.326 1.163 1.163 0 000 2.326z" clip-rule="evenodd" />
-                    </svg>
-                </a>
-            </div>
+            <!-- Ganti teks dengan tag img untuk logo di footer -->
+            <!-- Mengubah ukuran logo dari h-8 menjadi h-12 -->
+            <img src="{{ asset('images/logo_01.png') }}" alt="GenesisxClean Logo" class="h-16 mx-auto mb-4">
+            <p class="text-sm">&copy; {{ date('Y') }} GenesisxClean.</p>
+            <p class="text-sm">All Rights Reserved.</p>
         </div>
     </footer>
 
+    <!-- 2. Tambahkan JS Swiper.js -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- 3. Inisialisasi Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            // Opsi
+            loop: true, // Agar slider bisa berputar terus menerus
+            autoplay: {
+                delay: 3000, // Pindah slide setiap 3 detik
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+        });
+    </script>
 </body>
 </html>
